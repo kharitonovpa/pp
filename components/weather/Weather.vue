@@ -4,6 +4,9 @@ import WeatherItem from '~/components/weather/WeatherItem';
 export default {
   name: 'Weather',
   components: { WeatherItem },
+  async mounted() {
+    await this.$store.dispatch('core/loadCity');
+  },
   methods: {
     ...mapMutations('core', ['setPopup']),
   },
