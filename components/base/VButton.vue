@@ -32,21 +32,36 @@ export default {
 <style lang="scss">
 .v-button {
   @extend %button;
-  &_default {
-    padding: 0.5em 1em;
-    border-radius: 0.5em;
+  background-color: $color-purple;
+  border-radius: 50%;
+  box-shadow: 0 em(4px) em(5px) rgba(0, 0, 0, 0.14), 0 1px em(10px) rgba(0, 0, 0, 0.12),
+    0 2px em(4px) rgba(0, 0, 0, 0.2);
+  width: em(56px);
+  height: em(56px);
+  transition: box-shadow 0.3s;
+  &:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    background-color: $color-white;
+    width: em(14px);
+    height: 2px;
   }
-  &_regular {
-    font-size: 1em;
+  &:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    background-color: $color-white;
+    width: 2px;
+    height: em(14px);
   }
-  &_white {
-    background-color: #f5f5f5;
-    &:hover {
-      background-color: #d2d2d2;
-    }
-    &:active {
-      background-color: #acacac;
-    }
+  &:hover {
+    box-shadow: em(6px) em(6px) em(5px) rgba(0, 0, 0, 0.34), 0 em(5px) em(10px) rgba(0, 0, 0, 0.32),
+      0 2px em(4px) rgba(0, 0, 0, 0.4);
   }
 }
 </style>

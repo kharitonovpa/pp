@@ -21,6 +21,10 @@ export default {
 
 <style lang="scss">
 .v-text {
+  &_big {
+    font-size: em($size-text-big);
+    line-height: 1;
+  }
   &_regular {
     font-size: em($size-text-regular);
     line-height: 1.33;
