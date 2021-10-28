@@ -1,10 +1,13 @@
 html {
-  font-size: (16/900)*100vh;
+  font-size: (16/1080)*100vh;
+  position: relative;
+  overflow-x: hidden;
+  color: $color-black;
 }
 
-@media screen and (max-aspect-ratio: 1440/900) {
+@media screen and (max-aspect-ratio: 1920/1080) {
   html {
-    font-size: (16/1440)*100vw;
+    font-size: (16/1920)*100vw;
   }
 }
 
