@@ -1,0 +1,72 @@
+@mixin ifmobile {
+  @media only screen and (max-width: 480px), only screen and (max-width: 768px) and (max-aspect-ratio: 18/13) {
+    @content;
+  }
+}
+
+@mixin iftablet {
+  @media only screen and (min-width: 480px) and (max-width: 768px) and (max-aspect-ratio: 18/13) {
+    @content;
+  }
+}
+
+@mixin ifdesktop {
+  @media only screen and (min-width: 769px), only screen and (min-width: 481px) and (min-aspect-ratio: 18/13) {
+    @content;
+  }
+}
+
+@mixin respond($media) {
+  @media only screen and (max-width: $media) {
+    @content;
+  }
+}
+
+@mixin respondFrom($media) {
+  @media only screen and (min-width: $media) {
+    @content;
+  }
+}
+
+@mixin respondBetween($start, $end) {
+  @media only screen and (min-width: $start) and (max-width: $end) {
+    @content;
+  }
+}
+
+@mixin respondH($media) {
+  @media only screen and (max-height: $media) {
+    @content;
+  }
+}
+
+@mixin respondHFrom($media) {
+  @media only screen and (min-height: $media) {
+    @content;
+  }
+}
+
+@mixin ifparent($selector) {
+  #{$selector} & {
+    @content;
+  }
+}
+
+@mixin iftouch {
+  @media (any-hover: none) {
+    @content;
+  }
+}
+
+@mixin ifnotouch {
+  @media (any-hover: hover) {
+    @content;
+  }
+}
+
+@mixin placeholder-color($color) {
+  &::-webkit-input-placeholder {color:$color;}
+  &::-moz-placeholder          {color:$color;}
+  &:-moz-placeholder           {color:$color;}
+  &:-ms-input-placeholder      {color:$color;}
+}

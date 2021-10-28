@@ -1,0 +1,90 @@
+@import "./extends/icons";
+
+%fullsize {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+%noprint {
+  @media print {
+    & {
+      display: none;
+    }
+  }
+}
+
+%button {
+  display: inline-block;
+  box-sizing: border-box;
+  vertical-align: middle;
+  outline: none;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  user-select: none;
+}
+%input {
+  display: block;
+  box-sizing: border-box;
+  vertical-align: middle;
+  outline: none;
+  border: none;
+  border-radius: 0;
+  text-align: left;
+  font-family: inherit;
+  -webkit-appearance: none;
+  &::-ms-clear {
+    display: none;
+  }
+}
+
+%background-cover {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+%background-contain {
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+%flex-start {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+%flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+%flex-end {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+%flex-space-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+%scroll-bar {
+  &::-webkit-scrollbar-track {
+    background-color: $color-white;
+  }
+  &::-webkit-scrollbar {
+    width: em(6px);
+    height: em(6px);
+    background-color: #F5F5F5;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: rgba(28,37,44, 0.1);
+    border: none;
+  }
+}
