@@ -6,12 +6,12 @@ export default {
       )
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
+          store.commit('addItem', data);
         });
       // console.log(result);
-      // store.commit('addItems', result.data);
+      // store.commit('setItems', result.data);
     } catch (e) {
-      console.log('core/actions/loadCity', e);
+      console.log('weather/actions/loadWeather', e);
     }
   },
 };
