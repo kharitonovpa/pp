@@ -8,13 +8,17 @@ export default {
       type: Boolean,
       default: false,
     },
+    title: {
+      type: String,
+      default: '',
+    },
   },
 };
 </script>
 
 <template>
   <div :class="{ is_main: isMain }" class="weather-item">
-    <VTitle class="weather-item__title">Moscow, RU</VTitle>
+    <VTitle class="weather-item__title">{{ title }}</VTitle>
     <VText class="weather-item__description">Your current location</VText>
     <div class="weather-item__list">
       <WeatherItemRow class="weather-item__row" label="Weather" value="Clouds" />

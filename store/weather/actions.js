@@ -1,12 +1,12 @@
 export default {
-  async loadCity(store) {
+  async loadWeather(store, city) {
     try {
-      await fetch('https://extreme-ip-lookup.com/json/?key=6TSXwVDgWGXF1JT1l1Oq')
+      await fetch(
+        `http://api.openweathermap.org/data/2.5/weather?units=metric&lang=en&APPID=${process.env.OPEN_WEATHER_API_KEY}&q=${store.rootState.core.city}`,
+      )
         .then((res) => res.json())
         .then((data) => {
           console.log(data);
-          store.commit('setCity', data.city || 'Moskow');
-          store.commit('setCountry', data.countryCode || 'RU');
         });
       // console.log(result);
       // store.commit('addItems', result.data);

@@ -71,6 +71,11 @@ typings/
 # Nuxt generate
 dist
 
+# Node.js version
+v*
+elevate.cmd
+elevate.vbs
+
 # vuepress build output
 .vuepress/dist
 

@@ -1,11 +1,15 @@
 <script>
-import { mapMutations } from 'vuex';
+import { mapState, mapMutations } from 'vuex';
 import WeatherItem from '~/components/weather/WeatherItem';
 export default {
   name: 'Weather',
   components: { WeatherItem },
+  computed: {
+    ...mapState('core', ['city', 'country']),
+  },
   async mounted() {
     await this.$store.dispatch('core/loadCity');
+    await this.$store.dispatch('weather/loadWeather');
   },
   methods: {
     ...mapMutations('core', ['setPopup']),
@@ -20,7 +24,7 @@ export default {
         <VTitle size="big" class="weather__title">World Weather</VTitle>
         <VText class="weather__description">Watch weather in your current location</VText>
         <div class="weather__main">
-          <WeatherItem is-main class="weather__item weather__item_main" />
+          <WeatherItem :title="`${city}, ${country}`" is-main class="weather__item weather__item_main" />
         </div>
         <div class="weather__list">
           <WeatherItem v-for="item in 4" :key="item" class="weather__item" />
