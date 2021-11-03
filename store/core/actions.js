@@ -4,7 +4,6 @@ export default {
       await fetch('https://extreme-ip-lookup.com/json/?key=6TSXwVDgWGXF1JT1l1Oq')
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
           store.commit('setCity', data.city || 'Moscow');
           store.commit('setCountry', data.countryCode || 'RU');
         });
