@@ -8,8 +8,6 @@ export default {
         .then((data) => {
           store.commit('addItem', data);
         });
-      // console.log(result);
-      // store.commit('setItems', result.data);
     } catch (e) {
       console.log('weather/actions/loadWeather', e);
     }
