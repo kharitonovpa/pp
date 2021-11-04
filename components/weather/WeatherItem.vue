@@ -12,6 +12,18 @@ export default {
       type: String,
       default: '',
     },
+    weather: {
+      type: String,
+      default: '',
+    },
+    temperature: {
+      type: Number,
+      default: 0,
+    },
+    humidity: {
+      type: Number,
+      default: 0,
+    },
   },
 };
 </script>
@@ -21,9 +33,9 @@ export default {
     <VTitle class="weather-item__title">{{ title }}</VTitle>
     <VText class="weather-item__description">Your current location</VText>
     <div class="weather-item__list">
-      <WeatherItemRow class="weather-item__row" label="Weather" value="Clouds" />
-      <WeatherItemRow class="weather-item__row" label="Temperature" value="7 °C" />
-      <WeatherItemRow class="weather-item__row" label="Humidity" value="45 %" />
+      <WeatherItemRow class="weather-item__row" label="Weather" :value="weather" />
+      <WeatherItemRow class="weather-item__row" label="Temperature" :value="`${temperature} °C`" />
+      <WeatherItemRow class="weather-item__row" label="Humidity" :value="`${humidity} %`" />
     </div>
     <VText size="small" class="weather-item__lv">8 minutes ago</VText>
     <div class="weather-item__footer">
