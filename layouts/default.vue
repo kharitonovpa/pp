@@ -1,9 +1,9 @@
 <script>
-import BrowserNotSupported from '@/components/layout/BrowserNotSupported';
 import calcVh from '../mixins/calcVh';
 import checkEnv from '../mixins/checkEnv';
 import isLoading from '../mixins/isLoading';
 import isNoTransition from '../mixins/isNoTransition';
+import BrowserNotSupported from '@/components/layout/BrowserNotSupported';
 import PopupAdd from '~/components/layout/PopupAdd';
 export default {
   components: { PopupAdd, BrowserNotSupported },

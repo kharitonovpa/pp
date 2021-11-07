@@ -1,4 +1,5 @@
 <script>
+import { mapMutations, mapActions } from 'vuex';
 import WeatherItemRow from '~/components/weather/WeatherItemRow';
 export default {
   name: 'WeatherItem',
@@ -9,6 +10,10 @@ export default {
       default: false,
     },
     title: {
+      type: String,
+      default: '',
+    },
+    city: {
       type: String,
       default: '',
     },
@@ -24,6 +29,28 @@ export default {
       type: Number,
       default: 0,
     },
+    date: {
+      type: Date,
+      default: '',
+    },
+  },
+  data() {
+    return {
+      timer: null,
+      lv: 'a few seconds ago',
+    };
+  },
+  mounted() {
+    this.timer = setInterval(() => {
+      this.setLv();
+    }, 60000);
+  },
+  methods: {
+    ...mapMutations('weather', ['removeItem']),
+    ...mapActions('weather', ['loadWeather']),
+    setLv() {
+      this.lv = moment(this.date).fromNow();
+    },
   },
 };
 </script>
@@ -37,10 +64,19 @@ export default {
       <WeatherItemRow class="weather-item__row" label="Temperature" :value="`${temperature} °C`" />
       <WeatherItemRow class="weather-item__row" label="Humidity" :value="`${humidity} %`" />
     </div>
-    <VText size="small" class="weather-item__lv">8 minutes ago</VText>
+    <VText size="small" class="weather-item__lv">{{ lv }}</VText>
     <div class="weather-item__footer">
-      <VText v-if="!isMain" size="small" class="weather-item__button weather-item__button_remove">REMOVE</VText>
-      <VText size="small" class="weather-item__button weather-item__button_reload">RELOAD</VText>
+      <VText
+        v-if="!isMain"
+        size="small"
+        class="weather-item__button weather-item__button_remove"
+        @click.native="removeItem(city)"
+      >
+        REMOVE
+      </VText>
+      <VText size="small" class="weather-item__button weather-item__button_reload" @click.native="loadWeather(city)">
+        RELOAD
+      </VText>
     </div>
   </div>
 </template>

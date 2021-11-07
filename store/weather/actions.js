@@ -8,6 +8,9 @@ export default {
         await result.json().then((data) => {
           store.commit('addItem', data);
         });
+      } else {
+        store.commit('setServerError', 'City not found');
+        setTimeout(() => store.commit('setServerError', ''), 1000);
       }
     } catch (e) {
       console.log('weather/actions/loadWeather', e);

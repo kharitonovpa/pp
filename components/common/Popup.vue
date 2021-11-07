@@ -99,13 +99,12 @@ export default {
     height: 100%;
     opacity: 0.5;
     background: rgb(11, 11, 11);
-    z-index: 1;
+    z-index: 2;
   }
   &__content-wrapper {
     display: flex;
     min-height: 100%;
     flex-flow: column;
-    z-index: 1;
     &:before,
     &:after {
       content: ' ';
@@ -126,13 +125,14 @@ export default {
       display: none;
     }
     @include ifmobile {
-      right: 0;
+      display: none;
     }
     &:hover {
       background: darken(#dddddd, 5%);
     }
   }
   &__content {
+    z-index: 2;
     position: relative;
     box-sizing: border-box;
     background: rgb(255, 255, 255);
@@ -141,7 +141,11 @@ export default {
     box-shadow: 0 em(16px) em(24px) rgba(0, 0, 0, 0.14), 0 em(6px) em(30px) rgba(0, 0, 0, 0.12),
       0 em(8px) em(10px) rgba(0, 0, 0, 0.2);
     border-radius: 4px;
-    width: em(751px);
+    @include ifdesktop {
+      width: em(751px);
+    }
+    @include ifmobile {
+    }
   }
 }
 </style>

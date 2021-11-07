@@ -50,6 +50,18 @@ p {
   top: -9999px;
 }
 
+.is_desktop {
+  @include ifmobile {
+    display: none;
+  }
+}
+
+.is_mobile {
+  @include ifdesktop {
+    display: none;
+  }
+}
+
 .is_no-transition {
   transition: none !important;
   transition-delay: 0s !important;
