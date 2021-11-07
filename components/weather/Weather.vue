@@ -9,8 +9,10 @@ export default {
     ...mapGetters('weather', ['getMainWeather', 'getListWeather']),
   },
   async mounted() {
-    await this.$store.dispatch('core/loadCity');
-    await this.$store.dispatch('weather/loadWeather', this.city);
+    if (!this.$store.state.core.city) {
+      await this.$store.dispatch('core/loadCity');
+      await this.$store.dispatch('weather/loadWeather', this.city);
+    }
   },
   methods: {
     ...mapMutations('core', ['setPopup']),

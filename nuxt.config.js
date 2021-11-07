@@ -94,6 +94,7 @@ export default {
     { src: '~/plugins/hydration.js' },
     { src: '~/plugins/vendor.js', ssr: false },
     { src: '~/plugins/scroll.js', ssr: false },
+    { src: '~/plugins/vuex-persist', ssr: false },
   ],
   styleResources: {
     scss: ['assets/scss/resources.scss'],

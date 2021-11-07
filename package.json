@@ -29,7 +29,9 @@
     "smoothscroll-polyfill": "^0.4.4",
     "typograf": "^6.11.1",
     "vue-lazy-hydration": "^1.0.0-beta.14",
-    "vuelidate": "^0.7.6"
+    "vuelidate": "^0.7.6",
+    "vuex-persist": "^3.1.3",
+    "vuex-persistedstate": "^4.1.0"
   },
   "devDependencies": {
     "@ava/babel": "^1.0.1",
